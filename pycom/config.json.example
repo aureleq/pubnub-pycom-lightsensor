@@ -1,0 +1,11 @@
+{
+  "wifi_ssid": "",
+  "wifi_key": "",
+  "mqtt_server": "mqtt.pndsn.com",
+  "mqtt_port": 1883,
+  "subscribe_key": "",
+  "publish_key": "",
+  "client_id": "sensorFridge",
+  "channel_name": "lighting",
+  "lux_threshold": 10
+}
