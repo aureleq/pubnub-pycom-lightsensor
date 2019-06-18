@@ -10,7 +10,7 @@ In this project, we will focus on cold chain monitoring, specifically refrigerat
 
 [PubNub](https://www.pubnub.com) is a great fit to enable realtime communication for IOT devices and quickly deploy applications to trigger actions.
 
-Our sensor will measure and send light information (in lux) every minute to PubNub MQTT gateway. PubNub function will then be used to compare the value to assess an opened door (we consider a closed fridge as emitting no light). After 5 consecutive positive measurements, a message will be pushed to an alert channel and also by text message through [ClickSend service](https://www.clicksend.com).
+Our sensor will measure and send light information (in lux) every minute to PubNub MQTT gateway. PubNub function will then be used to compare the lux value to assess an opened door (we consider a closed fridge as emitting no light). After 5 consecutive positive measurements, a message will be pushed to an alert channel and also by text message through [ClickSend service](https://www.clicksend.com).
 
 Our device is based on the [Pycom SiPy](https://pycom.io/product/sipy/) and [pysense](https://pycom.io/product/pysense/) boards. Pycom provides hardware to accelerate IOT development using multiple connectivity technologies like LoRa, Sigfox, WiFi or NB-IOT.
 
@@ -38,7 +38,7 @@ We can then create a new function that will execute `after publish` on channel `
 
 The function will publish to channel `lightingAlerts` once the lux threshold has been reached 5 times in a row (10 lux considered as low light environment). PubNub fire() could also have been used but publishing on a channel is also relevant for subscribers not receiving SMS.
 
-Second function of the module also execute after publish but on channel `lightingAlerts`. It retrieves the  clientId and sends a text message to the registered phone number.
+Second function of the module also executes after publish but on channel `lightingAlerts`. It retrieves the clientId and sends a text message to the registered phone number.
 Content of the function is in file clicksendText.js. Enter your clicksend api key and phone number to complete it. You can create a free account on [ClickSend](https://www.clicksend.com).
 
 ## Demo
