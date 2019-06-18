@@ -7,5 +7,6 @@
   "publish_key": "",
   "client_id": "sensorFridge",
   "channel_name": "lighting",
-  "lux_threshold": 10
+  "lux_threshold": 10,
+  "meas_frequency": 60
 }
